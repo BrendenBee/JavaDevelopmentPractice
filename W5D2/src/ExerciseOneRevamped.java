@@ -5,49 +5,44 @@ public class ExerciseOneRevamped {
         Scanner scan = new Scanner(System.in);
 
 
-        //I should redo this with an array list and create a for/while big loop for the calculations
-        //I should only need one for/while, maybe couple of if statements.
-        //For sure I need to make an array list
-
         ArrayList<Integer> arrayList = new ArrayList<Integer>(5);
-
-
-
-
 
             for (int i = 0; i < 5; i++) {
                 System.out.println("Add a number");
                 arrayList.add(i, scan.nextInt());
             }
-            int index = 0;
+
+
             int sum = 0;
-            int product = 0;
-            int largestValue = 0;
-            int smallestValue = 0;
-            while(index < arrayList.size()) {
+            int product = 1;
+            int largestValue = Integer.MAX_VALUE;
+            int smallestValue = Integer.MIN_VALUE;
 
-                 sum += arrayList.get(index);
-                 product *= arrayList.get(index);
-                 largestValue = Integer.MAX_VALUE;
-                 smallestValue = Integer.MIN_VALUE;
-                if( smallestValue < arrayList.get(index) ) {
 
-               smallestValue = arrayList.get(index);
-               }
-                if( largestValue > arrayList.get(index) ) {
 
-                    largestValue = arrayList.get(index);
+                for(int i = 0; i < arrayList.size(); i++) {
+
+                    sum += arrayList.get(i);
+
+                    product *= arrayList.get(i);
+
+                    if( smallestValue < arrayList.get(i) ) {
+
+                        smallestValue = arrayList.get(i);
+                    }
+
+                    if( largestValue > arrayList.get(i) ) {
+
+                        largestValue = arrayList.get(i);
+                    }
                 }
 
-                index++;
-
-            }
         System.out.println("The sum of the numbers is: " + sum);
         System.out.println("The product of the number is: " + product);
         System.out.println("The largest number is: " + largestValue);
         System.out.println("The smallest number is: " + smallestValue);
 
-        System.out.println(arrayList.size());
+
 
 
 
