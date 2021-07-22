@@ -95,7 +95,7 @@ import java.util.*;
             public static void main(String[] args){
                 //our array code from before
                 //This creates an array list of Integers call otherArray.
-                //When first declare reference type have tobe specific (Integer instead of Int, for example)
+                //When first declare reference type have to be specific (Integer instead of Int, for example)
                 ArrayList<Integer> otherArray = new ArrayList<Integer>(2);
 
             }
@@ -300,19 +300,198 @@ import java.util.*;
         Anna:34
 
 
+        //In Java, a LinkedList is a very important data structure because it serves as a template for other structures.
+        //
+        //
+        //
+        //LinkedLists consist of many objects with references to other objects. Because of this structure, LinkedLists are not indexed.
+        //
+        //
+        //
+        //The LinkedList itself functions as a container for its nodes, the objects which make up the list. This container object keeps track of the first and the last object in the list. It uses reference variables to point to these objects.
+
+
+        // Linked list points to beginning and last node
+
+        // { 5 , 4 , 3 , 6 , 7 }
+        //{value: 5 next: 1} -> {value: 8 next: 2} -> {value: 4 next: 3}
+
+        //LinkedList
+        //Each object within the list has a next variable (or field) which references the proceeding object in the list.
+        //
+        //The object that is first, will hold a reference to the object that is second, the second to the third, etc.
+        //
+        //But what about the last object in the list? What can it point to in its next field? The answer is nothing, so it points to null.
+        //
+        //public class LinkedList {
+        //    private Node first, last;
+        //    //Declares private variables `first` and `last`, which are
+        //    //instances of Node objects, to keep track of the first and last
+        //    //nodes of the list.
+        //}
+        //LinkedList
+        //Review: LinkedLists aren't indexed, so we don't know what position an object has in reference to the entire list, only which is first, which is last, and which comes after it.
+        //
+        //
+        //LinkedList
+        LinkedList<String> animalList = new LinkedList<String>();
+        animalList.add("frog");
+        animalList.add("giraffe");
+        animalList.add("buffalo");
+        animalList.add("mongoose");
+        System.out.println(animalList);
+        // => [frog, giraffe, buffalo, mongoose]
+
+        // Puts shark as the first element in the ArrayList
+        animalList.addFirst("shark");
+        System.out.println(animalList);
+        // => [shark, frog, giraffe, buffalo, mongoose]
+
+        // Puts koala as the last element in the ArrayList
+        animalList.addLast("koala");
+        System.out.println(animalList);
+        // => [shark, frog, giraffe, buffalo, mongoose, koala]
+
+        // This adds the value cuttlefish to the 3rd index of the LinkedList
+        animalList.add(3, "cuttlefish");
+        System.out.println(animalList);
+        // => [shark, frog, giraffe, cuttlefish, buffalo, mongoose, koala]
+
+        animalList.remove(3);
+        // Removes the element that is at the 3rd index of the LinkedList
+        animalList.remove("piranha");
+        // Removes the first instance of "piranha" in the LinkedList
+
+        animalList.removeFirst();
+        // Removes the first element of the LinkedList
+        animalList.removeLast();
+        // Removes the last elements of the LinkedList
+
+        animalList.contains("giraffe");
+        // Returns `true` if "giraffe" is present in the LinkedList
+
+        animalList.size();
+        // Returns an integer denoting the size of the LinkedList
+
+        animalList.get(3);
+        // Returns the value located at the 3rd index of the LinkedList
+        animalList.set(3, "emu");
+        //Sets the value at index 4 to "emu"
+        System.out.println(animalList);
+        // => [frog, giraffe, buffalo, emu]
+
+        public class LinkedList {
+            private Node first, last;
+            //Declares private variables `first` and `last`, which are
+            //instances of Node objects, to keep track of the first and last
+            //nodes of the list.
+        }
+
+
+        //Array lists are faster for sorting
+        //Linked lists are faster at adding and removing data
+        //Review: LinkedLists aren't indexed, so we don't know what position an object has in
+        //reference to the entire list, only which is first, which is last, and which comes after it.
+        //java.util.LinkedList; - for import
+
+
+        //Queue = FIFO data structure
+        //Objects are added to the back and removed from the front.
+        //
+        //
+        //
+        //When adding and removing from a queue, we call it enqueuing and dequeuing. Each data structure has a different name for adding and removing objects.​
+        //
+        //
+        //
+        //Queues have references to their first and last objects, and each object has a reference to the next one.
+        //Queue acts as an interface rather than an actual object.
+        //
+        //We can't instantiate an interface, but we can create an instance of LinkedList and assign it to a Queue interface
+
+        import java.util.*;
+
+        Queue<String> q = new LinkedList<String>();
+
+        Queue<Integer> myQueue = new LinkedList<>();
+
+        // Adds elements {5, 6, 7, 8, 9} to queue
+        for (int i=5; i<10; i++)
+            myQueue.add(i);
+
+        // Display contents of the queue.
+        System.out.println("Elements of queue-"+ myQueue);
+
+        // To remove the head of queue.
+        int removedHead = myQueue.remove();
+        System.out.println("removed element-" + removedHead);
+
+        System.out.println(myQueue);
+
+        // To view the head of queue
+        int head = myQueue.peek();
+        System.out.println("head of queue-" + head);
+
+        // Rest all methods of collection interface,
+        // Like size and contains can be used with this
+        // implementation.
+        int size = myQueue.size();
+        System.out.println("Size of queue-" + size);
 
 
 
+        //Stacks
+        //Last in, first out
+        //
+        //The most recently added to the stack is the first to be removed.
+        //This can be seen as adding to the front (or the top) and removing from the front (or the top).
+        //Adding to a stack is called pushing, and removing from a stack is called popping.
+        //
+        //
+        //Note: This can be a useful data structure to use when all of your objects are the
+        //same or are used for the same thing.
+
+        // Imports the data we need to use the Stack class
+
+        Stack<Integer> myStack;
+        // creates a reference variable for a Stack called myStack
+        myStack = new Stack<Integer>();
+        // creates a new Integer Stack and assigns its address to myStack
+
+        myStack.push(1);
+        // Pushes 1 to the top of our stack
+        // myStack now consists of [1]
+        myStack.push(2);
+        // myStack now consists of [1, 2]
+        myStack.push(3);
+        // myStack now consists of [1, 2, 3]
+
+        // Despite pushing to the "top" of the stack, the printed representation
+        // puts our new numbers at the back. The important part is that they are
+        // removed from the same place they are added.
+
+        myStack.pop();
+        //returns 3 and removes it from the stack
+        //myStack now consists of [1, 2]
+
+        //We can also look at the top of the stack without
+        //removing it by using peek
+        myStack.peek();
+        //returns 2, but doesn't remove it
+        //myStack still consists of [1, 2]
+
+        //We may want to know if a stack is empty before we manipulate it:
+        myStack.empty();
+        //this will return `false` because our stack is not empty
 
 
-
-
-
-
-
-
-
-
+        //Review:
+        //ArrayLists = Dynamically sized lists that track items by index (good for searching/sorting)
+        //HashMaps = Store data in "Maps" as Key&Value pairs (great a organizing unordered data, fast data structure)
+        //Linkedists = Data is store as nodes, with each node holding a value and pointer to the next node in the list.
+        // **Linked lists are fast for adding and removing data**
+        // Queues = Interface (type of linked list) - FIFO functionality
+        // Stacks = LIFO (Last In First Out) functionality
 
 
 
