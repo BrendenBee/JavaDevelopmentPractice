@@ -43,7 +43,15 @@
     </div>
 </div>
 
+// Here is the last 10 searches, needs better formatting
 
+
+<ul>
+    <li th:each="search : ${searches}">
+        <span th:text="${search.zipCode}"></span>
+    </li>
+
+</ul>
 
 </body>
 </html>
